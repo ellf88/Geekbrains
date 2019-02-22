@@ -16,7 +16,7 @@ function unit() {
     buildGameField();
 
     document.getElementById("snake-start").addEventListener("click", handleGameStart);
-    /*document.getElementById("snake-renew").addEventListener("click", handleGameRefresh);*/
+    document.getElementById("snake-renew").addEventListener("click", handleGameRefresh);
 
     window.addEventListener("keydown", handleDirectionChange);
 }
@@ -26,6 +26,11 @@ function handleGameStart() {
 
     snakeTimer = setInterval(move, snakeSpeed);
     setTimeout(createFood, foodSpeed);
+}
+
+function handleGameRefresh() {
+    alert("вы набрали " + score + " очков");
+    respawn();
 }
 
 function move() {
@@ -185,6 +190,8 @@ function respawn() {
         }
         food = [];
     }
+    
+    direction = "top";
 
     snakeCoordX = Math.floor(fieldSizeX / 2);
     snakeCoordY = Math.floor(fieldSizeY / 2);
@@ -198,6 +205,7 @@ function respawn() {
     snake.push($snakeHead);
     snake.push($snakeTail);
 }
+
 
 
 
