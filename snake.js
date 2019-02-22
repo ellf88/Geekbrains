@@ -1,10 +1,10 @@
 var fieldSizeX = 20;
 var fieldSizeY = 20;
 var cellSize = 16;
-var snakeSpeed = 200;
+var snakeSpeed = 100;
 var snake = [];
 var score = 0;
-var foodSpeed = 3000;
+var foodSpeed = 1500;
 var food = [];
 
 var snakeCoordX;
@@ -76,6 +76,7 @@ function move() {
     }
 
     if (newUnit && !isSnakeUnit(newUnit)) {
+       
         newUnit.classList.add("snake-unit");
         snake.push(newUnit);
 
@@ -172,7 +173,7 @@ function buildGameField() {
     $field.appendChild($table);
 }
 
-function isSnakeUnit() {
+function isSnakeUnit(unit) {
     return snake.includes(unit);
 }
 
